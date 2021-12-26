@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        function toLog(msg){
+            console.log(`Вывод в консоль: ${msg}`);
+        }
+
+        let cons = function(msg){//функциональное выражение
+            toLog(msg);
+        }
+
+        toLog(toLog);
+        let f=toLog;
+
+        f(f);
+
+        cons(f);
+
+
+
+    </script>
+    </head>
+    </head>
+    <body>
+    </body>
+</html>
