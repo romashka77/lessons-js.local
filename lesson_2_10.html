@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        let a=prompt('Введите первое число',0);
+        let b=prompt('Введите второе число',0);
+        console.log(typeof(a));
+        a=+a;
+        b=+b;
+        console.log(typeof(a));
+
+        console.log('a = ' + a);
+        console.log('b = ' + b);
+
+        alert(Number.isNaN(a)? 'Некорректное первое число': Number.isNaN(b)?'Некорректное второе число': 
+        `a + b = ${a+b}`);
+        if(confirm('Умножить?'))
+            alert(`a * b = ${a*b}`);
+    </script>
+    </head>
+    <body>
+    </body>
+</html>
