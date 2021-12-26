@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        let a=true, b=false;
+        console.log('a = ' + a);
+        console.log('b = ' + b);
+        console.log('!a = ' + !a);
+
+        console.log(`${a} && ${b} = ${a&&b}`);//огическое И
+        console.log(`${a} && ${!b} = ${a&&!b}`);//огическое И
+        console.log(`${a} || ${b} = ${a||b}`);//огическое ИЛИ
+        console.log(`(!${a}) || ${b} = ${(!a)||b}`);//огическое ИЛИ
+        console.log(`${a} ^ ${b} = ${a^b}`);// сключающее ИЛИ
+        a=3;b=4;
+        console.log(`${a} ^ ${b} = ${a^b}`);
+        console.log(`${a} & ${b} = ${a&b}`);
+        console.log(`${a} | ${b} = ${a|b}`);
+
+    </script>
+    </head>
+    <body>
+    </body>
+</html>
