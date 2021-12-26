@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        let a=5;
+        console.log('a = ' + a);
+        if  (a>5){
+            console.log('a больше 5');
+        }else{
+            console.log('a не больше 5');
+        }
+        let b=0, result;
+        // if(b!=0)result=3/b
+        // else result=0;
+        // console.log('result = ' + result);
+
+        result = (b!=0) ? 3/b : 0;
+        console.log('result = ' + result);
+        
+        b=2;
+        result = (b!=0) ? 3/b : 0;
+        console.log('result = ' + result);
+
+        let lang='ru';
+        console.log((lang=='ru')? 'Здравствуйте': (lang=='en')? 'Hello': (lang=='fr'? 'Bonjor' :'Неизвестно'));
+
+        
+    </script>
+    </head>
+    <body>
+    </body>
+</html>
