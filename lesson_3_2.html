@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        let point = {};
+        point = {
+            x:10,
+            y:20,
+            'two words':true
+        }
+        console.log(point);
+        console.log(point.x);
+        console.log(point.y);
+        console.log(point['y']);
+        console.log(point['two words']);
+        point.x=15;
+        point.z=40;
+        console.log(point);
+        for (const field in point) {
+            console.log(`Поле ${field} равно ${point[field]}`);
+        }
+        let point2 = {};
+        Object.assign(point2,point);
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
