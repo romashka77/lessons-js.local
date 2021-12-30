@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="functions.js"></script>
+	<script>
+        "use strict";
+        let arr=[];
+        while (true) {
+            let code = prompt('Введите код операции\n(1-добавить элемент; 2-вывести массив; 3-выход из цикла):');
+            if (code=='1') arr[arr.length]=prompt('Введите элемент массива');
+            else if (code=='2')console.log(arr);
+            else if (code=='3') break;
+            else console.log('Неизвестный код');
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
