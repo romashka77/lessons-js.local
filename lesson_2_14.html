@@ -17,10 +17,23 @@
         let f=toLog;
 
         f(f);
-
         cons(f);
 
-
+        function success(name){
+            alert(`Спасибо, ${name}`);
+        }
+        function error(){
+            alert(`Некорректный ввод`);
+        }
+        function errorName(){
+            alert(`Некорректный имя`);
+        }
+        function checkName(name,success,error){
+            if(name.length >= 2) success();
+            else error();
+        }
+        let name = prompt('Введите имя');
+        checkName(name,success,errorName);
 
     </script>
     </head>
