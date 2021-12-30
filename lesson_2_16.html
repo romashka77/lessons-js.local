@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        let div = (x,y)=>{
+            try{
+                if (y==0) throw new Error('Деление на 0');
+                result=x/y;
+                return result;
+            }
+            catch(e){
+                console.log('Ошибка '+e.name);
+                console.log(e);
+            }
+            finally{
+                console.log('==================');
+            }
+        }
+        div(10,5);
+        div(10,0);
+
+        window.onerror = (msg,url,line)=>{
+            alert(`Ошибка ${msg} на ${line} строке в файле ${url}.`)
+        }
+        x=0;
+    </script>
+    </head>
+    </head>
+    <body>
+    </body>
+</html>
