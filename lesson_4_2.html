@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        let str='Слово в \'кавычках\', слеш \\ и символ Unicode \u23F1';
+        console.log(str);
+        console.log(str.length);
+        console.log(str[0]);
+        console.log(str.codePointAt(0));//код в таблице Unicode
+        console.log('=======================');
+        console.log(str.indexOf('с'));
+        console.log(str.indexOf('с',25));
+        console.log(str.indexOf('я'));
+        console.log('=======================');
+        console.log(str.slice(10));
+        console.log(str.slice(10,15));
+        console.log(str.slice(-15,-2));
+        console.log(str.substr(10,10));
+        console.log('=======================');
+        console.log(str.toLowerCase());
+        console.log(str.toUpperCase());
+        str='         llhjlwhnldhwldh       ';
+        console.log(str);
+        console.log(str.trim());
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
