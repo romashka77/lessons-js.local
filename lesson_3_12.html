@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        let log ={
+            toLog(str){
+                console.log(str);
+            }
+        }
+        class Point{
+            constructor(x,y){
+                this.x=x;
+                this.y=y;
+                this.toLog('Создана точка');
+            }
+        }
+        class User{
+            constructor(){
+                this.toLog('Создан пользователь');
+            }
+        }
+        Object.assign(Point.prototype, log);
+        let p=new Point(10,20);
+        Object.assign(User.prototype, log);
+        p=new User();
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
