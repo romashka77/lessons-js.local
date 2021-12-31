@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        class Shape{
+            constructor(x,y){
+                this.x=x;
+                this.y=y;
+            }
+            getDistance(){
+                return Math.sqrt(this.x**2+this.y**2);
+            }
+            draw(){}
+        }
+
+        class Point extends Shape{
+            draw(){
+                console.log('Рисуем точку');
+            }
+        }
+
+        class Circle extends Shape{
+            constructor(x,y,r){
+                super(x,y);
+                this.r=r;
+            }
+            draw(){
+                console.log('Рисуем окружность');
+            }
+        }
+        let s=new Shape(5,10);
+        let p=new Point(15,11);
+        let c=new Circle(25,10,5);
+
+        console.log(s);
+        console.log(p);
+        console.log(c);
+        
+        s.draw();
+        p.draw();
+        c.draw();
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
