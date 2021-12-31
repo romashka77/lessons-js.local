@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        function Point(x,y){//конструктор
+            this.x=x,
+            this.y=y
+            this.print=function(){
+                console.log(`Точка с координатами ${this.x} и ${this.y}`);
+            }
+            this.distance=()=>{
+                return Math.sqrt(this.x**2+this.y**2);
+            }
+
+        }
+
+        let p = new Point(10, 20);
+        p.print();
+        console.log(p.distance());
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
