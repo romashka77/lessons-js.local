@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        class Point{
+            constructor(x,y){
+                this.x=x;
+                this.y=y;
+            }
+        }
+        class Circle{
+            constructor(p,r){
+                this.p=p;
+                this.r=r;
+                this.colors=['red','green','blue'];
+            }
+        }
+
+        let p=new Point(10,20);
+        let c=new Circle(p,10);
+        console.log(c);
+
+        let json=JSON.stringify(c);
+        console.log(json);
+
+        let obj=JSON.parse(json);
+        console.log(obj);
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
