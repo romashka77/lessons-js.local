@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        function isHaveLink(str){
+            let reg=/https?:\/\/.+?\.[a-z]{2,}\s/im;
+            return str.match(reg);
+        }
+
+        let str1='Переходите на сайт http://gjygjgmjgjyg.com kjljlijlij';
+        let str2='Переходите на сайт';
+        console.log(str1);
+        if (isHaveLink(str1)) {
+            console.log('Содержится ссылка');
+        }
+        console.log(str2);
+        if (isHaveLink(str2)) {
+             console.log('Содержится ссылка');
+        }
+
+        function checkEmail(str){
+            let reg=/^[a-z0-9_][a-z0-9\._-]*[a-z0-9_]*@([a-z0-9]+[a-z0-9_-]*[a-z0-9]+\.)+[a-z0-9]+$/i;
+            return str.match(reg);
+        }
+        let email1='Переходите на сайт http://gjygjgmjgjyg.com kjljlijlij';
+        let email2='pisem@net.ru';
+        console.log(email1);
+        if (checkEmail(email1)) {
+            console.log('Содержится email');
+        }
+        console.log(email2);
+        if (checkEmail(email2)) {
+             console.log('Содержится email');
+        }
+
+        let money='У меня в кармане 150 рублей и 200 рублей лежит дома';
+        let reg = /\d+/g;
+        let matches=money.match(reg);
+        console.log(matches);
+
+        console.log(money.replace(reg, 'N'));
+
+
+
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
