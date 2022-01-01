@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict"
+        let str1='ё';
+        let str2='я';
+        console.log(str1>str2);
+        let arr = ['Ёлка','Яблоко', 'Апельсин', 'Берёза'];
+        console.log(arr.sort());
+        let collator = new Intl.Collator();
+        console.log(arr.sort((a,b)=>collator.compare(a,b)));
+
+        let dtfru = new Intl.DateTimeFormat('ru-RU');
+        let dtfen = new Intl.DateTimeFormat('en-EN',{
+            year:'numeric',
+            month:'numeric',
+            day:'numeric',
+            hour:'numeric',
+            minute:'numeric',
+            second:'numeric',
+        });
+        console.log(dtfru.format(new Date()));
+        console.log(dtfen.format(new Date()));
+
+        let nfru = new Intl.NumberFormat();
+        let nfen = new Intl.NumberFormat('en-EN',{
+            style:'currency',
+            currency:'EUR'
+        });
+        console.log(nfru.format(465464646464.4646));
+        console.log(nfen.format(465464646464.4646));
+
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
