@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        let m=new Map();
+        m.set('name', 'Alex');
+        m.set('age', 25);
+        m.set('single', true);
+        console.log(m);
+        console.log(m.size);
+        console.log(m.get('name'));
+        console.log(m.has('single'));
+        m.delete('single');
+        console.log(m);
+        console.log(m.has('single'));
+        m.set('single', false);
+        for (const key of m.keys()) {
+            console.log(`m[${key}] = ${m.get(key)}`);
+        }
+        for (const value of m.values()) {
+            console.log(value);
+        }
+        for (const entry of m) {//Аналог for (const entry of m.entries()) {
+            console.log(entry);
+        }
+        m.clear();
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
