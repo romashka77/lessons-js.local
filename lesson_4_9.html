@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        function toLog(msg){
+            console.log(msg);
+        }
+        setTimeout(toLog, 1000, Math.random());//отложенный вызов 1 сек
+        setTimeout(()=>toLog(Math.random()), 2000);//отложенный вызов 2 сек
+
+        let tid = setTimeout(toLog, 1000, Math.random());
+        clearTimeout(tid);//отмена таймера
+        let c=0;
+        let iid = setInterval(()=>toLog(c++),1000);
+        setTimeout(()=>clearInterval(iid), 10000);
+
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
