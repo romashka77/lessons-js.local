@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+        "use strict";
+        let d=new Date();
+        console.log(d);
+        console.log(d.getTime()); 
+        console.log(d.getFullYear()); 
+        console.log(d.getMonth()); 
+        console.log(d.getDate()); 
+        console.log(d.getDay()); 
+        
+        d.setFullYear(2021);
+        console.log(d);
+
+        d = new Date(86400);
+        console.log(d);
+        d = new Date(86400000);
+        console.log(d);
+        d = new Date(2020,3,1,12,20,100);
+        console.log(d);
+        //YYYY-MM-DDTHH:mm:ss.sss+-hh:mm
+        let ms=Date.parse('2022-12-21T12:00:00.000+03:00');
+        console.log(new Date(ms));
+
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>
