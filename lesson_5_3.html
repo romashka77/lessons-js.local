@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <h1 id="header">Заголовок статьи</h1>
+        <p>Текст статьи...</p>
+        <p class="test">Текст статьи...</p>
+        <ul class="test">
+            <li>Раз</li>
+            <li>Два</li>
+            <li>Три</li>
+        </ul>
+        <p>Текст <strong>статьи</strong> ...</p>
+        <script>
+            "use strict"
+            let log=(msg)=>console.log(msg);
+            let header = document.getElementById('header');
+            header.innerHTML='Новый заголовок';
+            let elements=document.querySelectorAll('ul li');
+            for (const elem of elements) {
+                log(elem);
+                elem.style.color='#0c0';
+                log(elem.closest('.test').nodeName);//проверяет предков, есть class="test"
+            }
+            log(document.querySelector('.test').nodeName);
+        </script>
+    </body>
+</html>
