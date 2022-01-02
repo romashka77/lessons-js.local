@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Программирование на JS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>
+            .big{
+                font-size: 500%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 data-id="1">Заголовок статьи</h1>
+        <p>Текст статьи...</p>
+        <p class="test" style="font-size: 150%;">Текст статьи...</p>
+        <ul class="test">
+            <li>Раз</li>
+            <li>Два</li>
+            <li>Три</li>
+        </ul>
+        <p>Текст <strong>статьи</strong> ...</p>
+        <p>Небольшая <a href="https://1.ru">ссылка</a></p>
+        <p>Ещё <a href="https://2.ru">ссылка</a></p>
+        <script>
+            "use strict"
+            let log=(msg)=>console.log(msg);
+            let element=document.querySelector('h1');
+            log(element.hasAttribute('data-color'));
+            log(element.hasAttribute('data-id'));
+            log(element.getAttribute('data-id'));
+            element.setAttribute('data-id','5');
+            log(element.getAttribute('data-id'));
+            element.removeAttribute('data-id');
+            log(element.hasAttribute('data-id'));
+            for (const attr of document.querySelector('p.test').attributes) {
+                log(attr);
+            }
+            let elements = document.querySelectorAll('a');
+            for (const element of elements) {
+                element.setAttribute('target','_blank');
+            }
+            document.querySelector('h1').classList.add('big');
+            document.querySelector('h1').classList.add('test');
+        </script>
+    </body>
+</html>
