@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        #header {
+            font-size: 500%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="header">Заголовок статьи</h1>
+    <p>Текст статьи...</p>
+    <p class="test" style="font-size: 150%;">Текст статьи...</p>
+    <ul class="test">
+        <li>Раз</li>
+        <li>Два</li>
+        <li>Три</li>
+    </ul>
+    <p>Текст <strong>статьи</strong> ...</p>
+    <p>Небольшая <a href="https://1.ru">ссылка</a></p>
+    <p>Ещё <a href="https://2.ru">ссылка</a></p>
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let header = document.querySelector('#header');
+        header.style.fontSize = '100%';
+        header.style.color = 'red';
+        for (const elem of document.querySelectorAll('p')) {
+            elem.style.fontStyle = 'italic';
+        }
+        function hide() {
+            let opacity = +document.body.style.opacity;
+            opacity -= 0.01;
+            if (opacity <= 0) opacity = 0;
+            document.body.style.opacity = opacity;
+            log(opacity);
+            if (opacity > 0) setTimeout(hide, 10);
+        }
+        document.body.style.opacity = 1;
+        hide();
+    </script>
+</body>
+
+</html>
