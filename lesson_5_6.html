@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <h1 id="header">Заголовок статьи</h1>
+    <p>Текст статьи...</p>
+    <p class="test" style="font-size: 150%;">Текст статьи...</p>
+    <ul class="test">
+        <li>Раз</li>
+        <li>Два</li>
+        <li>Три</li>
+    </ul>
+    <p>Текст <strong>статьи</strong> ...</p>
+    <p>Небольшая <a href="https://1.ru">ссылка</a></p>
+    <p>Ещё <a href="https://2.ru">ссылка</a></p>
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let p = document.createElement('p');
+        p.innerHTML = 'Эта строка добавлена через <strong>Java Script</strong>.';
+        //Добавить в body
+        document.body.append(p);//в конец
+        document.body.prepend(p);//в начало
+        //Добавить 
+        document.querySelector('ul').before(p);//перед ul
+        document.querySelector('ul').after(p);//после ul
+        //Добавить HTML
+        document.querySelector('ul').insertAdjacentHTML('beforebegin', '<p style="color: red;">Вставка через insertAdjacentHTML</p>');
+        document.querySelector('ul').insertAdjacentHTML('beforeend', '<li style="color: green;">Вставка через insertAdjacentHTML</li>');
+        //insertAdjacentHTML('beforeend', '<p style="color: green;">Вставка через insertAdjacentHTML</p>');
+        document.querySelector('ul').
+            insertAdjacentHTML('afterbegin', '<li style="color: blue;">Вставка через insertAdjacentHTML</li>');
+        //insertAdjacentHTML('afterbegin', '<p style="color: blue;">Вставка через insertAdjacentHTML</p>');
+        document.querySelector('ul').insertAdjacentHTML('afterend', '<p style="color: yellow;">Вставка через insertAdjacentHTML</p>');
+        //Удалить элемент
+        document.querySelector('a').remove();
+        //Клонировать элемент
+        let ul = document.querySelector('ul').cloneNode(true);//true - с дочерними элементами
+        document.body.append(ul);
+    </script>
+</body>
+
+</html>
