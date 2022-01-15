@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let myClick = () => {
+            if (confirm('Вы уверены, что хотите перейти по ссылке?')) return true;
+            return false;
+        }
+        let clickLink = (event) => {
+            event.preventDefault();//Отменить браузерную обработку
+            log('Клик по ссылке ' + event.target);
+        }
+        // Когда документ прогрузится
+        document.addEventListener('DOMContentLoaded', (event) => {
+            log('Документ загружен');
+            for (const a of document.querySelectorAll('a')) {
+                if (!a.onclick)
+                    a.addEventListener('click', clickLink);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <a href="http://1.ru">Ссылка 1</a>
+    <a href="http://2.ru">Ссылка 2</a>
+    <a href="http://3.ru">Ссылка 3</a>
+    <a href="http://4.ru" onclick="return myClick();">Ссылка 4</a>
+</body>
+
+</html>
