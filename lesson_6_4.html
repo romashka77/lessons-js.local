@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let mouseover = (ev) => log('Наведение курсора мыши на элемент: ' + ev.target);
+        let mouseout = (ev) => log('Уведение курсора мыши с элемента: ' + ev.target);
+        let mousemove = (ev) => log('Мышь двигается над элементом: ' + ev.target + '; ' + ev.x + '; ' + ev.y);
+        let mousedown = (ev) => log('Кнопка мыши нажата на элементе: ' + ev.target + '; ' + ev.x + '; ' + ev.y);
+        let mouseup = (ev) => log('Кнопка мыши отпущена на элементе: ' + ev.target + '; ' + ev.x + '; ' + ev.y);
+
+        window.addEventListener('scroll', (ev) => {
+            log(ev);
+            // log('Смещение по Y: ' + window.pageYOffset);
+            log('Смещение по Y: ' + pageYOffset);
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let div = document.body.querySelector('div');
+            div.addEventListener('mouseover', mouseover);
+            div.addEventListener('mouseout', mouseout);
+            div.addEventListener('mousemove', mousemove);
+            div.addEventListener('mousedown', mousedown);
+            div.addEventListener('mouseup', mouseup);
+        });
+    </script>
+</head>
+
+<body style="height: 1000px;">
+    <div style="text-align: center; border: 1px solid #000;">
+        <h1>Наш тестовый элемент</h1>
+    </div>
+</body>
+
+</html>
