@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        #user-template {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Пользователи</h1>
+    <div id="user-template">
+        <p><strong>Имя:</strong> <span class="name"></span></p>
+        <p><strong>Возраст:</strong> <span class="age"></span> лет</p>
+        <p><strong>Холост:</strong> <span class="single"></span></p>
+        <hr />
+    </div>
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let count = 10;
+        let names = ['Алексей', 'Роман', 'Иван', 'Василий', 'Константин'];
+        let users = [];
+        for (let i = 0; i < count; i++) {
+            // let user = {
+            //     name: names[Math.floor(Math.random() * names.length)],
+            //     age: Math.floor(Math.random() * 100) + 1,
+            //     single: Math.random() > 0.5
+            // };
+            // users.push(user);
+            users.push({
+                name: names[Math.floor(Math.random() * names.length)],
+                age: Math.floor(Math.random() * 100) + 1,
+                single: Math.random() > 0.5,
+            });
+        }
+        log(users);
+
+        for (const user of users) {
+            let template = document.getElementById('user-template').cloneNode(true);
+            template.removeAttribute('id');
+            template.querySelector('.name').innerHTML = user.name;
+            template.querySelector('.age').innerHTML = user.age;
+            template.querySelector('.single').innerHTML = (user.single) ? 'Да' : 'Нет';
+            document.body.append(template);
+        }
+    </script>
+</body>
+
+</html>
