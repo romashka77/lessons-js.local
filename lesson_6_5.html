@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let checkName = (ev) => {
+            if (!ev.key.match(/[a-zа-я]/i) && ev.key.toLowerCase() != 'ё') ev.preventDefault();//Отменить браузерную обработку
+        };
+        let hello = () => log('Hello');
+        let keydown = (ev) => log('Код нажатой клавиши: ' + ev.keyCode + ' - ' + ev.code + ' - ' + ev.key);
+        let keyup = (ev) => log('Код отпущенной клавиши: ' + ev.keyCode + ' - ' + ev.code + ' - ' + ev.key);
+        let keypress = (ev) => log(ev);
+
+        document.addEventListener('DOMContentLoaded', (ev) => {
+            document.querySelector('div').addEventListener('keydown', hello);
+            window.addEventListener('keydown', keydown);
+            window.addEventListener('keyup', keyup);
+            window.addEventListener('keypress', keypress);
+            document.querySelector('input').addEventListener('keydown', checkName);
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" name="firstname" />
+    <div tabindex="0">Блок</div>
+</body>
+
+</html>
