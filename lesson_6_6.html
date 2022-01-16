@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        body {
+            font-size: 150%;
+        }
+
+        #error {
+            color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let handlerFocus = (ev) => {
+            if (ev.type == 'focus') log('Фокус установлен на элементе: ' + ev.target);
+            else if (ev.type == 'blur') log('Фокус снят с элемента: ' + ev.target);
+        };
+        let submitForm = (ev) => {
+            log('Попытка отправить форму');
+            let form = ev.target;
+            let error = form.querySelector('#error');
+            error.innerHTML = '';
+            let name = form.querySelector('input[name="name"]');
+            if (name.value.length == 0) {
+                error.innerHTML += 'Вы не ввели имя<br />';
+                name.focus();
+            }
+            if (!form.querySelector('input[name="rules"]').checked)
+                error.innerHTML += 'Вы не согласились с правилами<br />';
+            if (error.innerHTML) {
+                error.style.display = 'inline';
+                ev.preventDefault();//Отменить браузерную обработку
+            }else error.style.display = 'none';
+        };
+
+        document.addEventListener('DOMContentLoaded', (ev) => {
+            document.querySelector('form').addEventListener('submit', submitForm);
+            document.querySelector('input[name="name"]').addEventListener('focus', handlerFocus);//становка фокуса
+            document.querySelector('input[name="name"]').addEventListener('blur', handlerFocus);//снятие фокуса
+        });
+    </script>
+</head>
+
+<body>
+    <form name="myform" action="#" method="post">
+        <p id="error"></p>
+        <div>
+            <label>Имя</label> <input type="text" name="name" />
+        </div>
+        <div>
+            <label>Согласен с правилами сайта</label> <input type="checkbox" name="rules" value="1" />
+        </div>
+        <div>
+            <input type="submit" name="sbutton" value="Отправить" />
+        </div>
+    </form>
+</body>
+
+</html>
