@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        ul {
+            font-size: 150%;
+        }
+
+        ul ul {
+            font-size: 90%;
+            display: none;
+        }
+
+        .item {
+            border-bottom: 1px dashed #000;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let menu = (ev) => {
+            let ul = ev.target.parentNode.querySelector('ul');
+            log(ul.style.display);
+            if (ul.style.display == '' || ul.style.display == 'none')
+                ul.style.display = 'block';
+            else
+                ul.style.display = 'none';
+        }
+        document.addEventListener('DOMContentLoaded', (ev) => {
+            for (const item of document.querySelectorAll('.item')) {
+                item.addEventListener('click', menu);
+            }
+            document.querySelector('button').addEventListener('click', (ev) => {
+                let text = ev.target.parentNode.querySelector('textarea');
+                if (text.value.length == 0) alert('Вы не ввели комментарий.');
+                else {
+                    let comment = ev.target.parentNode.querySelector('.comment').cloneNode();
+                    let date = new Date();
+                    comment.innerHTML = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()} - 
+                    ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${text.value}`;
+                    ev.target.parentNode.querySelector('#count').innerHTML = ev.target.parentNode.querySelectorAll('.comment').length;
+                    text.before(comment);
+                    text.value = '';
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <span class="item">Пункт меню 1</span>
+            <ul>
+                <li>Пункт подменю 1</li>
+                <li>Пункт подменю 2</li>
+            </ul>
+        </li>
+        <li><span class="item">Пункт меню 2</span>
+            <ul>
+                <li>Пункт подменю 1</li>
+                <li>Пункт подменю 2</li>
+            </ul>
+        </li>
+        <li></li>
+    </ul>
+    <div id="comments">
+        <h2>Комментарии (<span id="count">0</span>):</h2>
+        <div class="comment"></div>
+        <textarea placeholder="Ваш комментарий"></textarea>
+        <br />
+        <button>Отправить</button>
+    </div>
+</body>
+
+</html>
