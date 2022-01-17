@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Программирование на JavaScript с Нуля до Гуру 2.0</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style>
+		.message {
+			cursor: pointer;
+		}
+	</style>
+	<script src="jquery.min.js"></script>
+	<script>
+		"use strict";
+		
+		function before() {
+			$('#result').text('Ожидание данных...');
+		}
+		
+		function error() {
+			$('#result').text('Ошибка загрузки данных');
+		}
+		
+		function success(data) {
+			$('#result').text('Сумма равна: ' + data);
+		}
+		
+		$(document).ready(function() {
+			$(document).on('submit', 'form', function(e) {
+				e.preventDefault();
+				let form = $(e.target);
+				let x = form.find('[name="x"]').val();
+				let y = form.find('[name="y"]').val();
+				$.ajax({
+					url: 'lesson_9_10.php',
+					type: 'POST',
+					data: ({x: x, y: y}),
+					dataType: 'text',
+					beforeSend: before,
+					success: success,
+					error: error
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<form name="form" method="post" action="#">
+		<label>X:</label> <input type="text" name="x" /><br />
+		<label>Y:</label> <input type="text" name="y" /><br /><br />
+		<input type="submit" name="form" value="Посчитать сумму" />
+	</form>
+	<div id="result"></div>
+</body>
+</html>

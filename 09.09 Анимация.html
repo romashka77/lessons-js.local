@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 	<title>Программирование на JavaScript с Нуля до Гуру 2.0</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,41 +12,42 @@
 	<script src="jquery.min.js"></script>
 	<script>
 		"use strict";
-		$(document).ready(function() {
-			$(document).on('click', 'h2', function(e) {
+		$(document).ready(function () {
+			$(document).on('click', 'h2', function (e) {
 				//$(e.target).slideUp(1000);
 				//$(e.target).slideDown(1000);
 				//$(e.target).toggle(300);
 				//$(e.target).toggle(300).toggle(300);
 				$(e.target).fadeOut(1000);
 				$(e.target).fadeIn(1000);
-				
+
 			});
-			
-			$(document).on('click', 'button', function(e) {
+
+			$(document).on('click', 'button', function (e) {
 				$('button').css('position', 'absolute');
 				let left = $('button').css('left');
 				console.log(left);
-				
+
 				$('button').animate({
 					'left': '+=800',
 					'opacity': 0
-				}, 3000, function() {
+				}, 3000, function () {
 					console.log('Анимация завершена');
 				});
-				
+
 				$('button').animate({
 					'left': left,
 					'opacity': 1
 				}, 3000);
 			});
-			
-			$(document).on('click', '.message', function(e) {
+
+			$(document).on('click', '.message', function (e) {
 				if (confirm('Подтвердите удаление')) $(e.target).fadeOut(1000, () => $(e.target).remove());
 			});
 		});
 	</script>
 </head>
+
 <body>
 	<div id="main">
 		<h2>Сообщения</h2>
@@ -57,4 +59,5 @@
 	</div>
 	<button>Анимация</button>
 </body>
+
 </html>
