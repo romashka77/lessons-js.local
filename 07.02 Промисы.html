@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let success = () =>
+            log('Задача выполнена успешно.');
+        let error = (e) =>
+            log('Произошла ошибка: ' + e);
+        let ps = new Promise(
+            (resolve, reject) => {
+                resolve('success');
+            }
+        );
+        let pe = new Promise(
+            (resolve, reject) => {
+                reject('error');
+            }
+        );
+        log(ps);
+        log(pe);
+
+        ps.then(success, error);
+        pe.then(success, error);
+
+        ps.finally(() => log('Вазвался (finally) у ps.'));
+        pe.finally(() => log('Вазвался (finally) у pe.'));
+
+        let loadjQuery = () => {
+            return new Promise((resolve, reject) => {
+                let jquery = document.createElement('script');
+                jquery.src = 'https://code.jquery.com/jquery-3.6.0.js';
+                document.head.append(jquery);
+                jquery.onload = resolve;
+                jquery.onerror = ()=> reject(new Error('Ошибка при загрузке jQuery.'));
+            });
+        };
+
+        let p = loadjQuery();
+        p.then(success, error);
+        p.then(loadjQuery).then(loadjQuery).then(success).catch(error);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
