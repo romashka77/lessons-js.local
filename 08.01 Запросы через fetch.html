@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let getData = async (url, json = false, headers = false) => {
+            let response = await fetch(url);
+            let data;
+            if (json)
+                data = await response.json();
+            else
+                data = await response.text();
+            if (response.ok) {
+                log('Данные получены:');
+                log(data);
+                // if (json) log('JSON: ' + data['name'] + ' ' + data['age'] + ' лет');
+                if (json) log('JSON: ' + data.name + ' ' + data.age + ' лет');
+            }
+            else {
+                log('Ошибка: ' + response.status);
+            }
+            if (headers) {
+                for (let [key, value] of response.headers) {
+                    log(`${key}  = ${value}`);
+                }
+
+            }
+        };
+        getData('lesson_8_1.php');
+        getData('lesson_8_1.phpp');
+        getData('lesson_8_1_json.php', true, true);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
