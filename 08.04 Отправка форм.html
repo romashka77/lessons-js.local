@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Программирование на JavaScript с Нуля до Гуру 2.0</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+		"use strict";
+		let log = (msg) => console.log(msg);
+		let sendForm = async (ev) => {
+			ev.preventDefault();
+			let response = await fetch('lesson_8_4.php', {
+				method: 'POST',
+				body: new FormData(event.target)
+			});
+
+			if (response.ok) {
+				let text = await response.text();
+				log(text);
+				document.querySelector('#response').innerHTML = 'Сумма равна: ' + text;
+			} else log('Ошибка');
+		};
+
+		document.addEventListener('DOMContentLoaded', function (event) {
+			document.querySelector('form').addEventListener('submit', sendForm);
+		});
+	</script>
+</head>
+
+<body>
+	<form name="myform">
+		<label>X:</label> <input type="text" name="x" /><br />
+		<label>Y:</label> <input type="text" name="y" /><br /><br />
+		<input type="submit" name="sbutton" value="Отправить" />
+		<p id="response"></p>
+	</form>
+</body>
+
+</html>
