@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let input;
+        let sendImage = async () => {
+            let image = input.files[0];
+            log(image);
+            let response = await fetch('lesson_8_3.php', {
+                method: 'POST',
+                body: image
+            });
+
+            if (response.ok) {
+                let text = await response.text();
+                console.log(text);
+                document.querySelector('img').src = text;
+            }
+            else console.log('Ошибка');
+        };
+        document.addEventListener('DOMContentLoaded', (ev) => {
+            input = document.querySelector('input[name="image"]');
+            input.addEventListener('change', sendImage);
+        });
+    </script>
+</head>
+
+<body>
+    <img src="" alt="" />
+    <form name="myform">
+        <input type="file" name="image" />
+    </form>
+</body>
+
+</html>
