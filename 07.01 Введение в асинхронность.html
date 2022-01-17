@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let loadjQuery = (success, error) => {
+            let jquery = document.createElement('script');
+            jquery.src = 'https://code.jquery.com/jquery-3.6.0.js';
+            document.head.append(jquery);
+            jquery.onload = success;
+            jquery.onerror = error;
+        };
+
+        loadjQuery(
+            () => {
+                log('jQuery загружен ' + $);
+                loadjQuery(
+                    () => {
+                        log('jQuery ещё раз загружен ' + $);
+                    },
+                    () => {
+                        log('Ошибка при загрузке jQuery.');
+                    }
+                 );
+            },
+            () => {
+                log('Ошибка при загрузке jQuery.');
+            }
+        );
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
