@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Программирование на JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        "use strict"
+        let log = (msg) => console.log(msg);
+        let success = () =>
+            log('Задача выполнена успешно.');
+        let error = (e) =>
+            log('Произошла ошибка: ' + e);
+        let test = async () => {
+            log('Функция test.');
+            // throw new Error('Ошибка.');
+            let p = await new Promise(
+                (resolve, reject) =>
+                    setTimeout(() => resolve(), 2000)
+            );
+            log('Завершаем выполнение функции test');
+        };
+        test().then(success, error);
+        log('Hello');
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
