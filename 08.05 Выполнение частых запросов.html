@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Программирование на JavaScript с Нуля до Гуру 2.0</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+		"use strict";
+		let checkCourse = async (stock) => {
+			let response = await fetch('lesson_8_5.php?stock=' + stock);
+			if (response.status == 200) {
+				let course = await response.text();
+				let elem = document.createElement('p');
+				elem.innerHTML = stock + ': ' + course + '$';
+				document.querySelector('#courses').append(elem);
+			}
+			setTimeout(checkCourse, 1000, stock);
+		};
+		checkCourse('XYZ');
+		checkCourse('ABC');
+	</script>
+</head>
+
+<body>
+	<div id="courses">
+		<h2>Курс акций XYZ</h2>
+	</div>
+</body>
+
+</html>
