@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Программирование на JavaScript с Нуля до Гуру 2.0</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style>
+		.message {
+			cursor: pointer;
+		}
+	</style>
+	<script src="jquery.min.js"></script>
+	<script>
+		"use strict";
+		$(document).ready(function() {
+			/*$('#main').click(function(e) {
+				console.log(e);
+				console.log('Клик мыши по ' + $(e.target).html());
+			});*/
+			
+			/*$('p').click(function(e) {
+				console.log(e);
+				$('p:last-child').after('<p>Ещё один элемент</p>');
+			});*/
+			
+			/*$(document).on('click', 'p', function(e) {
+				console.log(e);
+				$('p:last-child').after('<p>Ещё один элемент</p>');
+			});*/
+			
+			$(document).on('mouseover', '.message', function(e) {
+				console.log('Навели курсор мыши на элемент: ' + e.target);
+				$(e.target).css('color', '#0c0');
+				$(e.target).css('font-weight', 'bold');
+			});
+			
+			$(document).on('mouseout', '.message', function(e) {
+				console.log('Увели курсор мыши с элемента: ' + e.target);
+				$(e.target).css('color', '#000');
+				$(e.target).css('font-weight', 'normal');
+			});
+			
+			$(document).on('click', '.message', function(e) {
+				if (confirm('Подтвердите удаление')) $(e.target).remove();
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<div id="main">
+		<h2>Сообщения</h2>
+		<p class="message">Сообщение 1</p>
+		<p class="message">Сообщение 2</p>
+		<p class="message">Сообщение 3</p>
+		<p class="message">Сообщение 4</p>
+		<p class="message">Сообщение 5</p>
+	</div>
+</body>
+</html>
