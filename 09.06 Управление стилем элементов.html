@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Программирование на JavaScript с Нуля до Гуру 2.0</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style>
+		.red {
+			color: #c00;
+		}
+		
+		.green {
+			color: #0c0;
+		}
+	</style>
+	<script src="jquery.min.js"></script>
+	<script>
+		"use strict";
+		$(document).ready(function() {
+			let messages = $('.message');
+			for (let m of messages) {
+				if (Math.random() < 0.5) $(m).addClass('red');
+				else $(m).addClass('green');
+				console.log($(m).text() + '; red = ' + $(m).hasClass('red') + '; green = ' + $(m).hasClass('green'));
+			}
+			//$('.message').removeClass('red').removeClass('green');
+			$('h2').css('font-size', '300%');
+			$('p').css('font-size', '150%');
+			console.log($('h2').css('font-size'));
+		});
+	</script>
+</head>
+<body>
+	<div id="main">
+		<h2>Сообщения</h2>
+		<p class="message">Сообщение 1</p>
+		<p class="message">Сообщение 2</p>
+		<p class="message">Сообщение 3</p>
+		<p class="message">Сообщение 4</p>
+		<p class="message">Сообщение 5</p>
+	</div>
+</body>
+</html>
