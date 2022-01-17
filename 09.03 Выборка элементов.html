@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Программирование на JavaScript с Нуля до Гуру 2.0</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="jquery.min.js"></script>
+	<script>
+		"use strict";
+		$(document).ready(() => {
+			let main = $('#main');
+			console.log($(main).html());
+			let messages = $('.message');
+			console.log(messages.length);
+			for (let m of messages) {
+				console.log($(m).html());
+			}
+			let h2 = $('#main h2');
+			console.log($(h2).parent());
+			console.log($(h2).next().html());
+			console.log($(h2).next().next().html());
+			console.log($(main).prev());
+		});
+	</script>
+</head>
+
+<body>
+	<div id="test"></div>
+	<div id="main">
+		<h2>Сообщения</h2>
+		<p class="message">Сообщение 1</p>
+		<p class="message">Сообщение 2</p>
+		<p class="message">Сообщение 3</p>
+		<p class="message">Сообщение 4</p>
+		<p class="message">Сообщение 5</p>
+	</div>
+</body>
+
+</html>
