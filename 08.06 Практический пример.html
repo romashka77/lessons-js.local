@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Программирование на JavaScript с Нуля до Гуру 2.0</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+		"use strict";
+		let error = (msg) => console.log(msg);
+
+		let updateChat = async () => {
+			let response = await fetch('lesson_8_6.php');
+			if (response.status == 200) {
+				let json = await response.json();
+				//console.log(json);
+				let messages = document.querySelectorAll('.message');
+				for (let m of messages) m.remove();
+				for (let text of json) {
+					if (text == '') continue;
+					let m = document.createElement('p');
+					m.innerHTML = text;
+					m.classList.add('message');
+					document.querySelector('#chat').append(m);
+				}
+			}
+			setTimeout(updateChat, 1000);
+		};
+
+		let sendForm = async (ev) => {
+			event.preventDefault();
+			let response = await fetch('lesson_8_6.php', {
+				method: 'POST',
+				body: new FormData(ev.target)
+			});
+
+			if (response.status == 200) {
+				ev.target.text.value = '';
+				let text = await response.text();
+				console.log(text);
+				if (text != 'ok') error('Сообщение не доставлено: ' + text);
+			}
+			else error('Проблемы с соединением с сервером');
+		};
+
+		document.addEventListener('DOMContentLoaded', (ev) => {
+			document.querySelector('form[name="add"]').addEventListener('submit', sendForm);
+			updateChat();
+		});
+	</script>
+</head>
+
+<body>
+	<form name="add" action="#" method="post">
+		<textarea name="text" placeholder="Ваше сообщение"></textarea>
+		<input type="submit" name="add" value="Отправить" />
+	</form>
+	<div id="chat">
+		<h2>Сообщения</h2>
+	</div>
+</body>
+
+</html>
